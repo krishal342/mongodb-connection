@@ -1,9 +1,9 @@
 import userModel from '../models/user.model.js';
 
-export const createController = (req, res, next) => {
+export const createController = async (req, res, next) => {
     try{
         const {name, email} = req.body;
-        const user = userModel.create({name, email});
+        const user = await userModel.create({name, email});
         res.status(201).json(user);
 
     }catch(err){
@@ -11,9 +11,9 @@ export const createController = (req, res, next) => {
     }
 }
 
-export const getAllUserController = (req, res, next) => {
+export const getAllUserController = async (req, res, next) => {
     try{
-        const users = userModel.find();
+        const users = await userModel.find();
         res.status(200).json(users);
         
     }catch(err){
@@ -21,10 +21,10 @@ export const getAllUserController = (req, res, next) => {
     }
 }
 
-export const getUserByIdController = (req, res, next) =>{
+export const getUserByIdController = async (req, res, next) =>{
     try{
         const id = req.params.id;
-        const user = userModel.findById(id);
+        const user = await userModel.findById(id);
         res.status(200).json(user);
     }catch(err){
         next(err);
