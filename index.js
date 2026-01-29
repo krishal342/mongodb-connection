@@ -4,7 +4,7 @@ import config from './config/env.config.js';
 import connectDB from './config/db.config.js';
 import errorMiddleware from './middlewares/error.middleware.js';
 
-import { createController, getAllUserController, getUserByIdController } from './controllers/user.controller.js';
+import { createController, getAllUserController, getUserByIdController, updateUserController, deleteUserController } from './controllers/user.controller.js';
 
 const app = express();
 
@@ -23,6 +23,8 @@ app.get('/', (req, res) => {
 app.post('/users', createController);
 app.get('/users', getAllUserController);
 app.get('/users/:id', getUserByIdController);
+app.put('/users/:id', updateUserController);
+app.delete('/users/:id', deleteUserController);
 
 // error middleware
 app.use(errorMiddleware);
