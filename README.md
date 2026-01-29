@@ -10,6 +10,8 @@ Backend program to connect mongodb in node.js system using mongoose.
 - MONGODB_URL
 
 # routes
-- /users -> post request to create user -> take 'name' and 'email'
-- /users -> get request to get all users
-- /user/:id -> get request to get user by id
+- /users -> POST request to create user -> take 'name' and 'email'
+- /users -> GET request to get all users
+- /users/:id -> GET request to get user by id
+- /users/:id -> PUT request to update user by id
+- /users/:id -> DELETE request to delete user by id
