@@ -1,9 +1,9 @@
 Backend program to connect mongodb in node.js system using mongoose.
 
 # dependencies
-- "dotenv": "^17.2.3",
-- "express": "^5.2.1",
-- "mongoose": "^9.1.4"
+- "dotenv": "17.2.3",
+- "express": "5.2.1",
+- "mongoose": "9.1.4"
 
 # .env variables
 - PORT
