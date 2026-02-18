@@ -1,4 +1,4 @@
-import userModel from '../models/user.model.js';
+import studentModel from '../models/student.model.js';
 
 
 // create operation
