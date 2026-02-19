@@ -5,17 +5,17 @@ const courseSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    descriptin: {
+    description: {
         type: String,
     },
     creditHours: {
         type: Number,
         required: true
     },
-    student: {
+    student: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Student"
-    }
+    }]
 });
 
 const courseModel = mongoose.model('Course', courseSchema);

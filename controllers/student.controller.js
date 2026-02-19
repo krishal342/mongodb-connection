@@ -4,10 +4,10 @@ import studentModel from '../models/student.model.js';
 // create operation
 export const createStudent = async (req, res, next) => {
     try{
-        const {name, email, address} = req.body;
+        let {name, email, address} = req.body;
         email = email.toLowerCase();
-        const user = await studentModel.create({name, email, address});
-        res.status(201).json(user);
+        const student = await studentModel.create({name, email, address});
+        res.status(201).json(student);
 
     }catch(err){
         next(err);
@@ -18,8 +18,8 @@ export const createStudent = async (req, res, next) => {
 // read operation
 export const getAllStudent = async (req, res, next) => {
     try{
-        const users = await studentModel.find();
-        res.status(200).json(users);
+        const students = await studentModel.find();
+        res.status(200).json(students);
         
     }catch(err){
         next(err);
@@ -29,8 +29,8 @@ export const getAllStudent = async (req, res, next) => {
 export const getStudentById = async (req, res, next) =>{
     try{
         const id = req.params.id;
-        const user = await studentModel.findById(id);
-        res.status(200).json(user);
+        const student = await studentModel.findById(id);
+        res.status(200).json(student);
     }catch(err){
         next(err);
     }
@@ -41,13 +41,13 @@ export const updateStudent = async (req, res, next) => {
     try{
         const id = req.params.id;
         const {name, email, address} = req.body;
-        const user = await studentModel.findById(id);
-        user.name = name || user.name;
-        user.email = email ? email.toLowerCase() : user.email;
-        user.address = address || user.address;
-        await user.save();
+        let student = await studentModel.findById(id);
+        student.name = name || student.name;
+        student.email = email ? email.toLowerCase() : student.email;
+        student.address = address || student.address;
+        await student.save();
 
-        res.status(200).json(user);
+        res.status(200).json(student);
     }catch(err){
         next(err);
     }

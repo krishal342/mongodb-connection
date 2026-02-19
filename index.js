@@ -4,7 +4,8 @@ import config from './config/env.config.js';
 import connectDB from './config/db.config.js';
 import errorMiddleware from './middlewares/error.middleware.js';
 
-import { createController, getAllUserController, getUserByIdController, updateUserController, deleteUserController } from './controllers/user.controller.js';
+import studentRouter from './routes/student.route.js';
+import courseRoute from './routes/course.route.js';
 
 const app = express();
 
@@ -20,11 +21,8 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
-app.post('/users', createController);
-app.get('/users', getAllUserController);
-app.get('/users/:id', getUserByIdController);
-app.put('/users/:id', updateUserController);
-app.delete('/users/:id', deleteUserController);
+app.use('/students', studentRouter);
+app.use('/courses', courseRoute);
 
 // error middleware
 app.use(errorMiddleware);

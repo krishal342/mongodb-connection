@@ -7,11 +7,12 @@ Backend program to connect mongodb in node.js system using mongoose.
 
 # .env variables
 - PORT
-- MONGODB_URL
+- CONNECTION_STRING
+- DATABASE_NAME
 
 # routes
-- /users -> POST request to create user -> take 'name' and 'email'
-- /users -> GET request to get all users
-- /users/:id -> GET request to get user by id
-- /users/:id -> PUT request to update user by id
-- /users/:id -> DELETE request to delete user by id
+- /students -> POST request to create user -> take 'name', 'email', 'address'
+- /students -> GET request to get all students
+- /students/:id -> GET request to get user by id
+- /students/:id -> PUT request to update user by id -> take 'name' or 'email' or 'address'
+- /students/:id -> DELETE request to delete user by id

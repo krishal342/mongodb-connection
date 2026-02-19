@@ -18,10 +18,10 @@ const studentSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    course: {
+    course: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Course"
-    }
+    }]
 });
 
 const studentModel = mongoose.model('Student', studentSchema);
