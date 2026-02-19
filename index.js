@@ -6,6 +6,7 @@ import errorMiddleware from './middlewares/error.middleware.js';
 
 import studentRouter from './routes/student.route.js';
 import courseRoute from './routes/course.route.js';
+import enrollmentRoute from './routes/enrollment.route.js';
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.get('/', (req, res) => {
 
 app.use('/students', studentRouter);
 app.use('/courses', courseRoute);
+app.use('/enrollments', enrollmentRoute);
 
 // error middleware
 app.use(errorMiddleware);
